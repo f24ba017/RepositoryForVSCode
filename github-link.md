@@ -1,1 +1,1 @@
-### [課題提出]{https://github.com/f24ba017/RepositoryForVSCode.git}
+### [課題提出](https://github.com/f24ba017/RepositoryForVSCode.git)
