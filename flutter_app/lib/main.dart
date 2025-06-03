@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Generated App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: const Color(0xff2196f3),
-        canvasColor: const Color(0xffafafa),
+        primarySwatch: Colors.pink,
+        primaryColor: const Color(0xffe91e63),
+        canvasColor: const Color(0xfffafafa),
       ),
       home: MyHomePage(),
     );
