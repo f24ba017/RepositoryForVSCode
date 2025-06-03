@@ -6,50 +6,33 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  final title = 'Flutterサンプル';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: MyHomePage(
-        title:this.title,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({title:'Flutter Demo'}): super();
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-// データ用クラス
-class Data {
-  int _price;
-  String _name;
-  Data(this._name, this._price): super();
-
-  @override
-  String toString() {
-    return _name + ':' + _price.toString() + '円';
-  }
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // サンプルデータ
-  static final _data = [
-    Data('Apple',200),
-    Data('Orange', 150),
-    Data('Peach', 300)
-  ];
-  Data _item = _data[0];
+  int _counter = 0;
 
-  void _setData() {
+  void _incrementCounter() {
     setState(() {
-      _item = (_data..shuffle()).first;
+      _counter++;
     });
   }
 
@@ -57,16 +40,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Set data'),
+        title: Text(widget.title),
       ),
-      body: Text(
-        _item.toString(),
-        style: TextStyle(fontSize:32.0),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _setData,
-        tooltip: 'set message.',
-        child: Icon(Icons.star),
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
     );
   }
