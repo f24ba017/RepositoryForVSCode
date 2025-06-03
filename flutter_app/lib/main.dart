@@ -20,19 +20,36 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({required this.title}): super();
-  final String title;
+  const MyHomePage({title:'Flutter Demo'}): super();
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  String _message = 'Hello!';
+// データ用クラス
+class Data {
+  int _price;
+  String _name;
+  Data(this._name, this._price): super();
 
-  void _setMessage() {
+  @override
+  String toString() {
+    return _name + ':' + _price.toString() + '円';
+  }
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  // サンプルデータ
+  static final _data = [
+    Data('Apple',200),
+    Data('Orange', 150),
+    Data('Peach', 300)
+  ];
+  Data _item = _data[0];
+
+  void _setData() {
     setState(() {
-      _message = 'タップしました！';
+      _item = (_data..shuffle()).first;
     });
   }
 
@@ -40,14 +57,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Set data'),
       ),
       body: Text(
-        _message,
+        _item.toString(),
         style: TextStyle(fontSize:32.0),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _setMessage,
+        onPressed: _setData,
         tooltip: 'set message.',
         child: Icon(Icons.star),
       ),
