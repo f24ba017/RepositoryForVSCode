@@ -26,20 +26,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text('App Name'),
-          ),
-        body:
-          Text(
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('App Name'),
+      ),
+      body:
+      Center(
+        child:
+        Text(
           "Hello Flutter!",
-            style: TextStyle(fontSize:32.0,
-            color: const Color(0xff000000),
-            fontWeight: FontWeight.w700,
-            fontFamily: "Roboto"),
-          ),
-      );
-    }
+          style: TextStyle(fontSize:32.0,
+              color: const Color(0xff000000),
+              fontWeight: FontWeight.w700,
+              fontFamily: "Roboto"),
+        ),
+      ),
+    );
+  }
 }
