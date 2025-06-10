@@ -51,15 +51,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontFamily: "Roboto"),
               ),
             ),
-            ElevatedButton(
+            IconButton(
+              icon: const Icon(Icons.insert_emoticon),
+              iconSize: 100.0,
+              color: Colors.red,
               onPressed:buttonPressed,
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child:Icon (
-                  Icons.android,
-                  size: 50.0,
-                )
-              )
             )
           ]
         ),
