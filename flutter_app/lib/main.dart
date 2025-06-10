@@ -27,7 +27,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static var _message = 'ok.';
-  static var _selected = 'A';
+  static var _selected = 'One';
 
   @override
   Widget build(BuildContext context) {
@@ -56,44 +56,22 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(10.0),
             ),
 
-            Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
+            DropdownButton<String>(
+              onChanged: popupSelected,
+              value: _selected,
+              style: TextStyle(color:Colors.black,
+                fontSize:28.0,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Roboto'),
 
-                  Radio<String>(
-                    value: 'A',
-                    groupValue: _selected,
-                    onChanged: checkChanged,
-                  ),
-                  Text(
-                    "radio A",
-                    style: TextStyle(fontSize:28.0,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "Roboto"),
-                  )
-                ]
-            ),
-
-            Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-
-                  Radio<String>(
-                    value: 'B',
-                    groupValue: _selected,
-                    onChanged: checkChanged,
-                  ),
-                  Text(
-                    "radio B",
-                    style: TextStyle(fontSize:28.0,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "Roboto"),
-                  )
-                ]
+              items: <DropdownMenuItem<String>>[
+                const DropdownMenuItem<String>(value: 'One',
+                  child: const Text('One')),
+                const DropdownMenuItem<String>(value: 'Two',
+                  child: const Text('Two')),
+                const DropdownMenuItem<String>(value: 'Three',
+                  child: const Text('Three')),
+              ],
             ),
           ],
         ),
@@ -101,9 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void checkChanged(String? value){
+  void popupSelected(String? value){
     setState(() {
-      _selected = value ?? 'nodata';
+      _selected = value ?? 'not selected...';
       _message = 'select: $_selected';
     });
   }
