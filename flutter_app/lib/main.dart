@@ -52,16 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             TextButton(
-              onPressed: buttonPressed,
+              onPressed:buttonPressed,
               child: Padding(
                 padding: EdgeInsets.all(10.0),
-                child: Text(
-                  "Push me!",
-                  style: TextStyle(
-                    fontSize: 32.0,
-                    color: const Color(0xff000000),
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "Roboto"),
+                child:Icon (
+                  Icons.android,
+                  size: 50.0,
                 )
               )
             )
