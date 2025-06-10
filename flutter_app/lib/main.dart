@@ -51,12 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontFamily: "Roboto"),
               ),
             ),
-            IconButton(
-              icon: const Icon(Icons.insert_emoticon),
-              iconSize: 100.0,
-              color: Colors.red,
-              onPressed:buttonPressed,
-            )
+            FloatingActionButton(
+              child: Icon(Icons.android),
+              onPressed: buttonPressed
+            ),
           ]
         ),
       ),
