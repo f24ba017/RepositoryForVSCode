@@ -26,41 +26,43 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('App Name'),
-      ),
-      body:
-      Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('App Name'),
+        ),
+        body:
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
               "One",
-              style: TextStyle(fontSize:32.0,
-                  color: const Color(0xff000000),
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "Roboto"),
-            ),
-            Text(
+                style: TextStyle(fontSize:32.0,
+                color: const Color(0xff000000),
+                fontWeight: FontWeight.w400,
+                fontFamily: "Roboto"),
+              ),
+              Text(
               "Two",
-              style: TextStyle(fontSize:32.0,
-                  color: const Color(0xff000000),
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "Roboto"),
-            ),
-            Text(
+                style: TextStyle(fontSize:32.0,
+                color: const Color(0xff000000),
+                fontWeight: FontWeight.w400,
+                fontFamily: "Roboto"),
+              ),
+              Text(
               "Three",
-              style: TextStyle(fontSize:32.0,
-                  color: const Color(0xff000000),
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "Roboto"),
-            )
-          ]
-      ),
-    );
-  }
+                style: TextStyle(fontSize:32.0,
+                color: const Color(0xff000000),
+                fontWeight: FontWeight.w400,
+                fontFamily: "Roboto"),
+              )
+            ]
+          ),
+      );
+    }
+    void fabPressed() {}
+
 }
