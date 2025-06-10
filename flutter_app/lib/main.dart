@@ -67,8 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void buttonPressed() {
-    setState(() {
+  void buttonPressed(){
+    setState((){
       _message = (_janken..shuffle()).first;
     });
   }
