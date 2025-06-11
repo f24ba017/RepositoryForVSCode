@@ -10,80 +10,81 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Generated App',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        primaryColor: const Color(0xffe91e63),
+        primarySwatch: Colors.blue,
+        primaryColor: const Color(0xff2196f3),
         canvasColor: const Color(0xfffafafa),
       ),
-      home: MyHomePage(),
+      home: FirstScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+// １つ目のスクリーン
+class FirstScreen extends StatelessWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: Center(
+        child: Container(
+          child: const Text('Home Screen',
+              style: const TextStyle(fontSize: 32.0)),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 1,
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+            label: 'Home',
+            icon: const Icon(Icons.home, size:32),
+          ),
+          const BottomNavigationBarItem(
+            label: 'next',
+            icon: const Icon(Icons.navigate_next, size:32),
+          ),
+        ],
+        onTap: (int value) {
+          if (value == 1)
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context)=>SecondScreen()),
+            );
+        },
+      ),
+    );
+  }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-
- @override
- Widget build(BuildContext context) {
-   return Scaffold(
-
-     appBar: AppBar(
-       title: Text('My App'),
-     ),
-
-     body: SingleChildScrollView(
-       child: Column(
-           mainAxisSize: MainAxisSize.min,
-           mainAxisAlignment: MainAxisAlignment.spaceAround,
-           children: <Widget>[
-             Container(
-               color: Colors.blue,
-               height: 120.0,
-               child: const Center(
-                 child: Text('One',
-               style: const TextStyle(fontSize: 32.0)),
-               ),
-             ),
-             Container(
-               color:Colors.white,
-               height: 120.0,
-               child: const Center(
-                 child: Text('Two',
-               style: const TextStyle(fontSize: 32.0)),
-               ),
-             ),
-             Container(
-               color: Colors.blue,
-               height: 120.0,
-               child: const Center(
-                 child: Text('Three',
-               style: const TextStyle(fontSize: 32.0)),
-               ),
-             ),
-             Container(
-               color:Colors.white,
-               height: 120.0,
-               child: const Center(
-                 child: Text('Four',
-               style: const TextStyle(fontSize: 32.0)),
-               ),
-             ),
-             Container(
-               color: Colors.blue,
-               height: 120.0,
-               child: const Center(
-                 child: Text('Five',
-               style: const TextStyle(fontSize: 32.0)),
-               ),
-             ),
-           ],
-         ),
-       ),
-   );
- }
-
+// ２つ目のスクリーン
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Next"),
+      ),
+      body: Center(
+        child: const Text('Next Screen',
+            style:const TextStyle(fontSize: 32.0)),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+            label: 'prev',
+            icon: const Icon(Icons.navigate_before, size:32),
+          ),
+          const BottomNavigationBarItem(
+            label: '?',
+            icon: const Icon(Icons.android, size:32),
+          ),
+        ],
+        onTap: (int value) {
+          if (value == 0) Navigator.pop(context);
+        },
+      ),
+    );
+  }
 }
