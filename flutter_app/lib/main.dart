@@ -52,12 +52,14 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       appBar: AppBar(
         title: Text('My App'),
-        bottom: TabBar(
+      ),
+      bottomNavigationBar:Container(
+        color: Colors.blue,
+        child:TabBar(
           controller: _tabController,
           tabs: tabs,
         ),
       ),
-
       body: TabBarView(
         controller: _tabController,
         children: tabs.map((Tab tab) {
